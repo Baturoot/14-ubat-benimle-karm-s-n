@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>14 Şubata Benimle Girer misin?</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .heart {
+        position: absolute;
+        color: #ff4d6d;
+        font-size: 24px;
+        animation: float 6s infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh); }
+        100% { transform: translateY(-10vh); }
+    }
+
+    .box {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        z-index: 10;
+        width: 340px;
+    }
+
+    h1 {
+        color: #ff4d6d;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    #yes {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    #no {
+        background: #ccc;
+        position: absolute;
+    }
+
+    #chance {
+        margin-top: 10px;
+        color: #ff4d6d;
+        display: none;
+    }
+
+    #romantic {
+        display: none;
+        margin-top: 15px;
+        color: #ff4d6d;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    #cat {
+        display: none;
+        margin-top: 15px;
+    }
+
+    #cat img {
+        width: 220px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+</style>
+</head>
+<body>
+
+<script>
+    for (let i = 0; i < 25; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+    }
+</script>
+
+<div class="box" id="box">
+    <h1 id="title">14 Şubata benimle girer misin? 💖</h1>
+
+    <button id="yes">Evet</button>
+    <button id="no">Hayır</button>
+
+    <div id="chance">Bir şans versen olmaz mı? 🥺</div>
+
+    <div id="romantic">
+        Bu sadece bir gün değil…  
+        Belki de güzel bir hikâyenin başlangıcı 💕  
+        Gülüşünle daha güzel olacak.
+    </div>
+
+    <div id="cat">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131"
+             alt="Sevimli kedi">
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const chance = document.getElementById("chance");
+    const yesBtn = document.getElementById("yes");
+    const cat = document.getElementById("cat");
+    const romantic = document.getElementById("romantic");
+    const title = document.getElementById("title");
+
+    noBtn.addEventListener("mouseover", () => {
+        chance.style.display = "block";
+        noBtn.style.left = Math.random() * 80 + "vw";
+        noBtn.style.top = Math.random() * 80 + "vh";
+    });
+
+    yesBtn.addEventListener("click", () => {
+        chance.style.display = "none";
+        noBtn.style.display = "none";
+        yesBtn.style.display = "none";
+
+        title.innerText = "Kalbimi gülümsettin 💗";
+        romantic.style.display = "block";
+        cat.style.display = "block";
+    });
+</script>
+
+</body>
+</html>
